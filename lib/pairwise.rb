@@ -15,7 +15,7 @@ require 'yaml'
 
 
 module Pairwise
-  class InvalidInputData < Exception; end
+  class InvalidInputData < StandardError; end
 
   VERSION = '0.2.2'
 
