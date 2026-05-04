@@ -4,7 +4,7 @@ module Pairwise
   describe Cli do
 
     before(:each) do
-      Kernel.stub!(:exit).and_return(nil)
+      allow(Kernel).to receive(:exit).and_return(nil)
     end
 
     def output_stream

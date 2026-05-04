@@ -12,8 +12,6 @@ require 'forwardable'
 
 SCRATCH_SPACE = 'tmp'
 
-require 'limited_red/plugins/cucumber'
-
 class PairwiseWorld
   extend Forwardable
   def_delegators PairwiseWorld, :self_test_dir
@@ -82,6 +80,8 @@ end
 World do
   PairwiseWorld.new
 end
+
+World(RSpec::Mocks::ExampleMethods)
 
 Before do
   FileUtils.rm_rf SCRATCH_SPACE

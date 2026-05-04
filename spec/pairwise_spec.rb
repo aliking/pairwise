@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Pairwise do
   before(:each) do
-    Kernel.stub!(:rand).and_return(0)
+    allow(Kernel).to receive(:rand).and_return(0)
   end
 
   context "with invalid inputs" do
@@ -106,14 +106,14 @@ describe Pairwise do
         it "should generate pairs for 2 parameters of 3,2,3 values" do
           Pairwise.combinations([:A1, :A2, :A3],
                                 [:B1, :B2],
-                                [:C1, :C2, :C3]).should == [[:A1, :B1, :C1], 
-                                                            [:A1, :B2, :C3], 
-                                                            [:A2, :B1, :C3], 
-                                                            [:A2, :B2, :C2], 
-                                                            [:A3, :B1, :C2], 
-                                                            [:A3, :B2, :C1], 
-                                                            [:A2, :B1, :C1], 
-                                                            [:A1, :B1, :C2], 
+                                [:C1, :C2, :C3]).should == [[:A1, :B1, :C1],
+                                                            [:A1, :B2, :C3],
+                                                            [:A2, :B1, :C3],
+                                                            [:A2, :B2, :C2],
+                                                            [:A3, :B1, :C2],
+                                                            [:A3, :B2, :C1],
+                                                            [:A2, :B1, :C1],
+                                                            [:A1, :B1, :C2],
                                                             [:A3, :B1, :C3]]
         end
       end
